@@ -14,7 +14,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const { data } = useData()
-  // On recupere la dernière prestation
+  // On trie les prestations de la plus recent à la plus ancien et on recupere la prestation la plus recente (1ere element du tableau)
   const last = data?.events.sort((evtA, evtB) =>
     new Date(evtB.date) - new Date(evtA.date)
   )[0];
@@ -62,7 +62,7 @@ const Page = () => {
       <section className="PeoplesContainer">
         <h2 className="Title" id="notre-equipe">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
-        <div className="ListContainer" data-testid="listOfPeople">
+        <div className="ListContainer" data-testid="listOfPeople">a
           <PeopleCard
             imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png"
             name="Samira"
