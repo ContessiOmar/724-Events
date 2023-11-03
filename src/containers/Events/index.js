@@ -14,9 +14,11 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
+    /* BUG 3 */
     (!type
       ? data?.events // Affiche tous les événements si aucune catégorie n'est sélectionnée
       : data?.events.filter((event) => event.type === type)) || [] // // Affiche tous les événements de la catégorie sélectioné
+    /* BUG 3 */
   ).filter((event, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&

@@ -11,6 +11,7 @@ const Slider = () => {
     new Date(evtA.date) < new Date(evtB.date)
   );
 
+  /* BUG 2 */
   const nextCard = () => {
     // Mise a jour de l'index
     setIndex(currentIndex + 1 === byDateDesc?.length ? 0 : currentIndex + 1);
@@ -33,6 +34,8 @@ const Slider = () => {
     ...event,
     id: index,
   }));
+
+  /* BUG 2 */
 
   return (
     <div className="SlideCardList">

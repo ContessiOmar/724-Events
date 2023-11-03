@@ -14,10 +14,12 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const { data } = useData()
+  /* BUG 4 */
   // On trie les prestations de la plus recent à la plus ancien et on recupere la prestation la plus recente (1ere element du tableau)
   const last = data?.events.sort((evtA, evtB) =>
     new Date(evtB.date) - new Date(evtA.date)
   )[0];
+  /* BUG 4 */
   return <>
     <header>
       <Menu />
@@ -121,8 +123,10 @@ const Page = () => {
       <div className="col presta">
 
         <h3>Notre dernière prestation</h3>
-
+       
+       
         {last && (  // On ajoute "last" pour supprimer l'erreur "undefined" dans la console avec l'opérateur && on restitue le composant
+        /* BUG 4 */
           <EventCard
             imageSrc={last?.cover}
             title={last?.title}
@@ -130,7 +134,7 @@ const Page = () => {
             small
             label={last?.type}
             data-testid="lastEvent"
-          />
+          />  
         )}
       </div>
       <div className="col contact">
